@@ -1,158 +1,76 @@
 package com.example.lolapp_sam_api;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
 public class Champion implements Parcelable {
-    public Champion() {
-    }
-
     private String releasedate;
     private String name;
     private String id;
     private String faction;
     private String image;
-
-    private String description;
     private String title;
-    private String videoUrl;
     private String race;
     private String rol;
     private String quote;
     private String biography;
 
+    public Champion() {}
 
-    public static final Parcelable.Creator<Champion> CREATOR = new Creator<Champion>() {
-        @Override
-        public Champion createFromParcel(Parcel in) {
-            return new Champion(in);
-        }
+    protected Champion(Parcel in) {
+        releasedate = in.readString();
+        name = in.readString();
+        id = in.readString();
+        faction = in.readString();
+        image = in.readString();
+        title = in.readString();
+        race = in.readString();
+        rol = in.readString();
+        quote = in.readString();
+        biography = in.readString();
+    }
 
-        @Override
-        public Champion[] newArray(int size) {
-            return new Champion[size];
-        }
+    public static final Creator<Champion> CREATOR = new Creator<Champion>() {
+        @Override public Champion createFromParcel(Parcel in) { return new Champion(in); }
+        @Override public Champion[] newArray(int size) { return new Champion[size]; }
     };
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
-    public String getQuote() {
-        return quote;
-    }
-
-    public void setQuote(String quote) {
-        this.quote = quote;
-    }
-
-    public String getBiography() {
-        return biography;
-    }
-
-    public void setBiography(String biography) {
-        this.biography = biography;
-    }
-
     public String getReleasedate() {
-        return releasedate.substring(0,10);
+        if (releasedate == null || releasedate.trim().isEmpty()) return "Desconocida";
+        return releasedate.length() >= 10 ? releasedate.substring(0, 10) : releasedate;
     }
+    public void setReleasedate(String value) { releasedate = value; }
+    public String getName() { return name == null ? "" : name; }
+    public void setName(String value) { name = value; }
+    public String getId() { return id; }
+    public void setId(String value) { id = value; }
+    public String getFaction() { return faction == null ? "unaffiliated" : faction; }
+    public void setFaction(String value) { faction = value; }
+    public String getImage() { return image; }
+    public void setImage(String value) { image = value; }
+    public String getTitle() { return title == null ? "" : title; }
+    public void setTitle(String value) { title = value; }
+    public String getRace() { return race == null ? "Desconocido" : race; }
+    public void setRace(String value) { race = value; }
+    public String getRol() { return rol == null ? "Desconocido" : rol; }
+    public void setRol(String value) { rol = value; }
+    public String getQuote() { return quote == null ? "" : quote; }
+    public void setQuote(String value) { quote = value; }
+    public String getBiography() { return biography == null ? "" : biography; }
+    public void setBiography(String value) { biography = value; }
 
-    public void setReleasedate(String releasedate) {
-        this.releasedate = releasedate;
-    }
+    @Override public int describeContents() { return 0; }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFaction() {
-        return faction;
-    }
-
-    public void setFaction(String faction) {
-        this.faction = faction;
-    }
-
-    //parsel
-    public Champion(Parcel in){
-        this.releasedate = in.readString();
-        this.name = in.readString();
-        this.faction = in.readString();
-        this.image = in.readString();
-        this.title = in.readString();
-        this.videoUrl = in.readString();
-        this.race = in.readString();
-        this.rol = in.readString();
-        this.quote = in.readString();
-        this.biography = in.readString();
-    }
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.releasedate);
-        dest.writeString(this.name);
-        dest.writeString(this.faction);
-        dest.writeString(this.image);
-        dest.writeString(this.title);
-        dest.writeString(this.videoUrl);
-        dest.writeString(this.race);
-        dest.writeString(this.rol);
-        dest.writeString(this.quote);
-        dest.writeString(this.biography);
-    }
-
-    @Override
-    public String toString() {
-        return "Champion{" +
-                "releasedate='" + releasedate + '\'' +
-                ", name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", faction='" + faction + '\'' +
-                ", image='" + image + '\'' +
-                ", description='" + description + '\'' +
-                ", title='" + title + '\'' +
-                ", videoUrl='" + videoUrl + '\'' +
-                ", race='" + race + '\'' +
-                ", rol='" + rol + '\'' +
-                ", quote='" + quote + '\'' +
-                ", biography='" + biography + '\'' +
-                '}';
+    @Override public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(releasedate);
+        dest.writeString(name);
+        dest.writeString(id);
+        dest.writeString(faction);
+        dest.writeString(image);
+        dest.writeString(title);
+        dest.writeString(race);
+        dest.writeString(rol);
+        dest.writeString(quote);
+        dest.writeString(biography);
     }
 }

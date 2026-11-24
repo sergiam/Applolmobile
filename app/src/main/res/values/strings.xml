@@ -19,4 +19,17 @@
         <item>shurima</item>
         <item>zaun</item>
     </string-array>
+    <string name="champion_release_date">Fecha de lanzamiento: %1$s</string>
+    <string name="champion_faction">Facción: %1$s</string>
+    <string name="champion_race">Raza: %1$s</string>
+    <string name="champion_role">Rol: %1$s</string>
+    <string name="champion_title">Título: %1$s</string>
+    <string name="favorite_added">Añadido a favoritos</string>
+    <string name="favorite_removed">Eliminado de favoritos</string>
+    <string name="favorite_add_description">Añadir a favoritos</string>
+    <string name="favorite_remove_description">Quitar de favoritos</string>
+    <string name="champion_open_error">No se pudo abrir la información del campeón.</string>
+    <string name="champion_list_error">No se encontraron campeones en la API.</string>
+    <string name="champion_slugs_error">No se pudo cargar la lista. Pulsa Start para reintentar.</string>
+    <string name="champion_batch_error">Algunos campeones no se pudieron cargar.</string>
 </resources>
