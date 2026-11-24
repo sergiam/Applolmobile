@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">LOLApp_SAM_API</string>
+    <string-array name="factions">
+        <item>All</item>
+        <item>all</item>
+        <item>fav</item>
+        <item>unaffiliated</item>
+        <item>bandle-city</item>
+        <item>shadow-isles</item>
+        <item>bilgewater</item>
+        <item>demacia</item>
+        <item>freljord</item>
+        <item>ionia</item>
+        <item>ixtal</item>
+        <item>noxus</item>
+        <item>piltover</item>
+        <item>mount-targon</item>
+        <item>void</item>
+        <item>shurima</item>
+        <item>zaun</item>
+    </string-array>
 </resources>

@@ -12,16 +12,37 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+    private HashMap<String,Champion> championsList = new HashMap<>();
     private List<Champion> champions;
     private Context context;
     private RecyclerViewOnClickListener listener;
-    public Adapter(List<Champion> champions, Context context){ //RecyclerViewOnClickListener listener) {
+    public Adapter(List<Champion> champions, Context context, RecyclerViewOnClickListener listener) {
         this.champions = champions;
         this.context = context;
-        //this.listener = listener;
+        this.listener = listener;
+    }
+
+
+    public HashMap<String, Champion> getChampionsList() {
+        return championsList;
+    }
+
+
+    public Champion getChampion(String id){
+        return championsList.get(id);
+    }
+    public List<Champion> getChampions() {
+
+        return champions;
+    }
+
+    public void setChampions(List<Champion> champ) {
+        champions.forEach(champion -> championsList.put(champion.getName(), champion));
+        this.champions = champ;
     }
 
     @NonNull
@@ -37,13 +58,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.nombre.setText(champions.get(position).getName());
         holder.faction.setText(champions.get(position).getFaction());
         holder.release_date.setText(champions.get(position).getReleasedate());
-        Glide.with(context).load(champions.get(position).getImageUrl()).into(holder.imageView);
-
+        Glide.with(context).load(champions.get(position).getImage()).placeholder(R.drawable.ic_launcher_background).into(holder.imageView).waitForLayout();
     }
 
     @Override
     public int getItemCount() {
         return champions.size();
+    }
+
+    public void saveChampions() {
+        champions.forEach(champion -> championsList.put(champion.getName(), champion));
+        champions.clear();
+        championsList.forEach((s, champion) -> champions.add(champion));
+        this.notifyDataSetChanged();
     }
 
     public interface RecyclerViewOnClickListener{
@@ -65,6 +92,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             release_date = itemView.findViewById(R.id.name2);
             itemView.setOnClickListener(this);
         }
+
 
         @Override
         public void onClick(View view) {

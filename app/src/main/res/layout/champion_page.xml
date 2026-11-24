@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#95BCFD"
+    android:backgroundTint="#95BCFD">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-130dp"
+        tools:layout_editor_absoluteY="77dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/championDescriptionPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="67dp"
+                android:text="description"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/championTitlePage" />
+
+            <TextView
+                android:id="@+id/championRacePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="40dp"
+                android:text="race"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/championRolPage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/championReleaseDatePage" />
+
+            <TextView
+                android:id="@+id/championTitlePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="194dp"
+                android:text="title"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/championQuotePage" />
+
+            <TextView
+                android:id="@+id/championRolPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="41dp"
+                android:text="rol"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/championFactionPage" />
+
+            <ImageView
+                android:id="@+id/championImagePage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="75dp"
+                android:maxWidth="42dp"
+                android:maxHeight="42dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/championNamePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="35dp"
+                android:text="name"
+                android:textColor="#000000"
+                android:textSize="40sp"
+                app:layout_constraintBottom_toTopOf="@+id/championImagePage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.366"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.603" />
+
+            <TextView
+                android:id="@+id/championFactionPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="30dp"
+                android:text="faction"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/championQuotePage" />
+
+            <TextView
+                android:id="@+id/championQuotePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="quote"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/championImagePage" />
+
+            <TextView
+                android:id="@+id/championReleaseDatePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="20dp"
+                android:text="releasedate"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/championFactionPage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/championQuotePage" />
+
+            <ImageButton
+                android:id="@+id/championButtonFav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toTopOf="@+id/championImagePage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.007"
+                app:layout_constraintStart_toEndOf="@+id/championNamePage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.666"
+                app:srcCompat="@android:drawable/btn_star" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

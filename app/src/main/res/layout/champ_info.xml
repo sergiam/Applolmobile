@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#95BCFD"
+    android:backgroundTint="#95BCFD">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -24,16 +26,8 @@
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_launcher_background" />
-
-            <TextView
-                android:id="@+id/name2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:minHeight="100px" />
 
             <TextView
                 android:id="@+id/name"
@@ -47,15 +41,42 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:visibility="visible">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/faction"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/black" />
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
             </LinearLayout>
 
         </LinearLayout>

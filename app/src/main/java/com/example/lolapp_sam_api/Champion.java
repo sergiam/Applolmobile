@@ -1,29 +1,89 @@
 package com.example.lolapp_sam_api;
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Champion {
+
+public class Champion implements Parcelable {
+    public Champion() {
+    }
+
     private String releasedate;
     private String name;
     private String id;
     private String faction;
-    private ImageDTO image;
-    private String url;
+    private String image;
 
-    public Champion(String type, String releasedate, String name, String title, String sectiontitle, String slug, String associatedfaction, String associatedfactionslug, ImageDTO image, BackgroundDTO background, String url) {
-        this.releasedate = releasedate.substring(0,10);
-        this.name = name;
-        this.id = slug;
-        this.faction = associatedfactionslug;
-        this.image = image;
-        this.url = url;
+    private String description;
+    private String title;
+    private String videoUrl;
+    private String race;
+    private String rol;
+    private String quote;
+    private String biography;
+
+
+    public static final Parcelable.Creator<Champion> CREATOR = new Creator<Champion>() {
+        @Override
+        public Champion createFromParcel(Parcel in) {
+            return new Champion(in);
+        }
+
+        @Override
+        public Champion[] newArray(int size) {
+            return new Champion[size];
+        }
+    };
+
+    public String getImage() {
+        return image;
     }
 
-    public String getImageUrl(){
-        return this.image.getUri();
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public String getQuote() {
+        return quote;
+    }
+
+    public void setQuote(String quote) {
+        this.quote = quote;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 
     public String getReleasedate() {
-        return releasedate;
+        return releasedate.substring(0,10);
     }
 
     public void setReleasedate(String releasedate) {
@@ -38,14 +98,6 @@ public class Champion {
         this.name = name;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getFaction() {
         return faction;
     }
@@ -54,196 +106,53 @@ public class Champion {
         this.faction = faction;
     }
 
-    public ImageDTO getImage() {
-        return image;
+    //parsel
+    public Champion(Parcel in){
+        this.releasedate = in.readString();
+        this.name = in.readString();
+        this.faction = in.readString();
+        this.image = in.readString();
+        this.title = in.readString();
+        this.videoUrl = in.readString();
+        this.race = in.readString();
+        this.rol = in.readString();
+        this.quote = in.readString();
+        this.biography = in.readString();
+    }
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setImage(ImageDTO image) {
-        this.image = image;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.releasedate);
+        dest.writeString(this.name);
+        dest.writeString(this.faction);
+        dest.writeString(this.image);
+        dest.writeString(this.title);
+        dest.writeString(this.videoUrl);
+        dest.writeString(this.race);
+        dest.writeString(this.rol);
+        dest.writeString(this.quote);
+        dest.writeString(this.biography);
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public class ImageDTO {
-        private String title;
-        private String subtitle;
-        private String uri;
-        private String encoding;
-        private Integer width;
-        private Integer height;
-        private Integer x;
-        private Integer y;
-        private List<?> featuredchampions;
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getSubtitle() {
-            return subtitle;
-        }
-
-        public void setSubtitle(String subtitle) {
-            this.subtitle = subtitle;
-        }
-
-        public String getUri() {
-            return uri;
-        }
-
-        public void setUri(String uri) {
-            this.uri = uri;
-        }
-
-        public String getEncoding() {
-            return encoding;
-        }
-
-        public void setEncoding(String encoding) {
-            this.encoding = encoding;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public Integer getX() {
-            return x;
-        }
-
-        public void setX(Integer x) {
-            this.x = x;
-        }
-
-        public Integer getY() {
-            return y;
-        }
-
-        public void setY(Integer y) {
-            this.y = y;
-        }
-
-        public List<?> getFeaturedchampions() {
-            return featuredchampions;
-        }
-
-        public void setFeaturedchampions(List<?> featuredchampions) {
-            this.featuredchampions = featuredchampions;
-        }
-    }
-
-    public static class BackgroundDTO {
-        private String title;
-        private String subtitle;
-        private String description;
-        private String uri;
-        private String encoding;
-        private Integer width;
-        private Integer height;
-        private Integer x;
-        private Integer y;
-        private List<?> featuredchampions;
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getSubtitle() {
-            return subtitle;
-        }
-
-        public void setSubtitle(String subtitle) {
-            this.subtitle = subtitle;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getUri() {
-            return uri;
-        }
-
-        public void setUri(String uri) {
-            this.uri = uri;
-        }
-
-        public String getEncoding() {
-            return encoding;
-        }
-
-        public void setEncoding(String encoding) {
-            this.encoding = encoding;
-        }
-
-        public Integer getWidth() {
-            return width;
-        }
-
-        public void setWidth(Integer width) {
-            this.width = width;
-        }
-
-        public Integer getHeight() {
-            return height;
-        }
-
-        public void setHeight(Integer height) {
-            this.height = height;
-        }
-
-        public Integer getX() {
-            return x;
-        }
-
-        public void setX(Integer x) {
-            this.x = x;
-        }
-
-        public Integer getY() {
-            return y;
-        }
-
-        public void setY(Integer y) {
-            this.y = y;
-        }
-
-        public List<?> getFeaturedchampions() {
-            return featuredchampions;
-        }
-
-        public void setFeaturedchampions(List<?> featuredchampions) {
-            this.featuredchampions = featuredchampions;
-        }
+    @Override
+    public String toString() {
+        return "Champion{" +
+                "releasedate='" + releasedate + '\'' +
+                ", name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                ", faction='" + faction + '\'' +
+                ", image='" + image + '\'' +
+                ", description='" + description + '\'' +
+                ", title='" + title + '\'' +
+                ", videoUrl='" + videoUrl + '\'' +
+                ", race='" + race + '\'' +
+                ", rol='" + rol + '\'' +
+                ", quote='" + quote + '\'' +
+                ", biography='" + biography + '\'' +
+                '}';
     }
 }
