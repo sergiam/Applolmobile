@@ -1,0 +1,2 @@
+Aplicación Android para explorar campeones de League of Legends. Obtiene sus datos de la API de League of Legends Universe y muestra la información en una cuadrícula de tarjetas y una pantalla de detalle.
+Permite consultar la fecha de lanzamiento, facción, raza, rol, título, biografía e imagen de cada campeón; filtrar por facción y guardar favoritos. La lista se carga por páginas para no solicitar todos los datos de una vez.
